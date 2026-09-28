@@ -24,7 +24,13 @@ python3 -m http.server 8000
 
 ## Editing
 
-- **Content** lives in `index.html`, one `<section>` per part of the page.
+- **Content** lives in `index.html`, one `<section>` per part of the page: intro and stats,
+  experience, client projects, GitHub projects, skills, education, contact.
 - **Colours and fonts** are CSS variables at the top of `assets/css/style.css`. The dark theme
   redefines them twice: once for the system preference and once for the manual toggle.
-- **A new project** is another `<article class="project">` inside `.project-grid`.
+- **A new client project** is another `<article class="card reveal">` inside `.grid-2`.
+- **A new GitHub project** is another `<article class="card repo reveal">` inside `.repo-grid`.
+  Keep an even number of half-width cards so the last row isn't left with one card; smaller
+  repos go in the "Also on GitHub" list instead.
+- **The portrait** is `assets/img/mihai-coretchi.jpg` (224×336) with a 2× copy for sharp screens.
+  To use a better photo, replace both files and keep the 2:3 ratio.
