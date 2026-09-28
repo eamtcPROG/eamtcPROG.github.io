@@ -29,7 +29,7 @@ index.html            the whole page, one <section> per part
 404.html              not-found page (root-relative paths, reuses style.css)
 assets/css/style.css  tokens, components, responsive rules
 assets/js/main.js     theme toggle, mobile menu, scroll reveal, nav highlighting, footer year
-assets/img/           portrait 300×450 + 2× copy 600×900 (waist-up, 2:3); 160×160 avatar for phones
+assets/img/           portrait 224×336 + 2× copy 448×672 (2:3, desktop); 160×160 avatar (phones)
 favicon.svg           "MC" monogram
 CNAME                 eamtc.me (custom domain; not published)
 _config.yml           Jekyll: no theme, exclude list
@@ -86,10 +86,10 @@ The page describes a real person, and recruiters and clients read it. Accuracy b
   name a private repo here or on the page. This file is public too.
 - **Privacy:** no date of birth, gender, nationality, street address or phone number. Show the
   city only. The contact email is `mihai.coretchi17@gmail.com`.
-- **Hand-maintained facts to keep current:** the three hero stats (9 client products, 40+ public
-  repos, clients since 2022), "Dec 2022 — present", and the Master's dates. The hero's
-  "Open to new roles and projects" pill was confirmed by the owner on 28 Sep 2026. Change or
-  remove it (and its green dot) as soon as that stops being true. The Master's
+- **Hand-maintained facts to keep current:** the four hero stats (9 client products, 40+ public
+  repos, clients since 2022, MSc; phones show the first three), "Dec 2022 — present", and the
+  Master's dates. On phones the status pill reads "Open to new roles and projects", which the
+  owner confirmed on 28 Sep 2026. Change or remove it as soon as that stops being true. The Master's
   "2025 — present" was inferred from course repos, so confirm it with the owner before relying
   on it.
 - **"Used in" links** in Skills point at project card ids (`#p-iftamaster`, `#p-dasi`, …). When
@@ -113,10 +113,20 @@ The page describes a real person, and recruiters and clients read it. Accuracy b
   no JavaScript, it shows without animating. Browsers without `-webkit-text-stroke` get a faint
   solid fill instead of an outline. The contact panel's number reuses the style through
   `--num-stroke`.
-- **Hero:** name, a one-line summary, the main stack as a mono `.stack-line`, then one primary
-  button and icon-only GitHub/LinkedIn buttons (`.btn-icon`, each with an `aria-label`). Below
-  720 px the large portrait is hidden, and a round `.avatar` plus a `.hero-location` line appear
-  next to the status pill. That keeps the name and buttons on a phone's first screen.
+- **Hero has two layouts, switched at 720 px.** The owner chose this split: keep desktop as it
+  is, and use the compact version on phones only. Any change above 720 px must leave desktop
+  pixel-identical unless the owner asks otherwise.
+  - Desktop and tablet: status pill with the current role, name, the `.lead` and `.sub`
+    paragraphs, labelled buttons, the framed portrait, and four stats.
+  - 720 px and below:
+    - the portrait is replaced by a round `.avatar` and a `.hero-location` line next to the
+      pill, and the pill switches from `.status-role` to `.status-open`
+    - the paragraphs give way to `.lead-short` and the mono `.stack-line`
+    - GitHub and LinkedIn become icon-only (`.btn-social`, whose `aria-label` matches the
+      visible label)
+    - the `.stat-extra` MSc tile is hidden
+  - That keeps the name and "Get in touch" on a phone's first screen. Both versions live in the
+    markup; the breakpoint's `display` rules pick one.
 - **Scroll reveal** only hides elements when `<html>` has the `js` class, so the page still works
   without JavaScript. Keep that guard.
 - **Accessibility target is WCAG 2.2 AA:** landmarks, a skip link, visible focus, real alt

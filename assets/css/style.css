@@ -273,7 +273,6 @@ p:last-child { margin-bottom: 0; }
 .btn-primary:hover svg { transform: translateX(3px); }
 
 .btn-quiet { background: transparent; }
-.btn-icon { width: 46px; padding: 0; justify-content: center; }
 .btn-lg { min-height: 56px; padding: 0 28px; font-size: 17px; }
 
 /* =========================================================
@@ -324,7 +323,7 @@ p:last-child { margin-bottom: 0; }
   background: color-mix(in srgb, var(--surface) 80%, transparent);
   font-size: 14px;
   color: var(--muted);
-  margin: 0;
+  margin-bottom: 26px;
 }
 
 .status-dot {
@@ -348,22 +347,15 @@ p:last-child { margin-bottom: 0; }
   80%, 100% { transform: scale(1.4); opacity: 0; }
 }
 
-/* Status pill, plus an avatar and location that only show on phones,
-   where the large portrait is hidden. */
-.hero-meta {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-}
-.hero-meta-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
+/* Phone-only hero pieces. Desktop keeps the portrait, the two paragraphs and
+   labelled buttons; below 720px these take over (see the responsive section). */
+.avatar,
+.hero-location,
+.status-open,
+.lead-short,
+.stack-line { display: none; }
+
 .avatar {
-  display: none;
   flex: none;
   width: 64px;
   height: 64px;
@@ -374,7 +366,6 @@ p:last-child { margin-bottom: 0; }
     0 0 0 4.5px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 .hero-location {
-  display: none;
   align-items: center;
   gap: 6px;
   margin: 0;
@@ -384,21 +375,8 @@ p:last-child { margin-bottom: 0; }
 }
 .hero-location svg { color: var(--accent); }
 
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 7.5vw, 96px);
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 0.98;
-  margin-bottom: 30px;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.lead {
-  font-size: clamp(20px, 2.5vw, 27px);
+.lead-short {
+  font-size: 20px;
   line-height: 1.4;
   max-width: 24em;
   margin-bottom: 20px;
@@ -413,7 +391,6 @@ p:last-child { margin-bottom: 0; }
   margin: 0 0 0 -22px;
   padding: 0;
   clip-path: inset(0 0 0 22px);
-  display: flex;
   flex-wrap: wrap;
   row-gap: 4px;
   font-family: var(--font-mono);
@@ -429,6 +406,31 @@ p:last-child { margin-bottom: 0; }
   position: absolute;
   left: 8px;
   color: var(--faint);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7.5vw, 96px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  margin-bottom: 30px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.lead {
+  font-size: clamp(19px, 2.2vw, 23px);
+  line-height: 1.5;
+  max-width: 32em;
+  margin-bottom: 18px;
+}
+
+.sub {
+  color: var(--muted);
+  max-width: 36em;
 }
 
 .actions {
@@ -490,7 +492,7 @@ p:last-child { margin-bottom: 0; }
 /* Stat tiles */
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: clamp(48px, 7vw, 80px) 0 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1160,6 +1162,9 @@ p:last-child { margin-bottom: 0; }
    ========================================================= */
 @media (max-width: 980px) {
   .core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 900px) {
@@ -1201,9 +1206,40 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .hero-inner { grid-template-columns: 1fr; }
-  .portrait { display: none; }
+
+  /* Compact hero: avatar, location and availability next to one another,
+     a one-line summary, and icon-only social buttons. Keeps the name and
+     "Get in touch" on a phone's first screen. */
+  .portrait,
+  .lead,
+  .sub,
+  .status-role,
+  .btn-label,
+  .stat-extra { display: none; }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .hero-meta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .status { margin: 0; }
   .avatar { display: block; }
   .hero-location { display: inline-flex; }
+  .status-open { display: inline; }
+  .lead-short { display: block; }
+  .stack-line { display: flex; }
+  .btn-social { width: 46px; padding: 0; justify-content: center; }
+  .btn-social svg { width: 18px; height: 18px; }
+
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 1px solid var(--line); }
+  .stat:nth-child(n + 3) { border-top: 0; }
   .role,
   .timeline li { grid-template-columns: 1fr; gap: 6px; }
   .role-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
