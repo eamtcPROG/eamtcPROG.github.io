@@ -1,0 +1,15 @@
+# GitHub Pages builds this repository with Jekyll. No page uses templates:
+# none has front matter, so Jekyll copies every file through unchanged.
+# Jekyll is here only to keep repository files off the published site.
+# Anything whose name starts with "." or "_" is skipped automatically.
+
+# Without this, Pages applies its default theme (Primer), whose
+# assets/css/style.scss would compile over our assets/css/style.css.
+theme: null
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  # Pages leaves CNAME out of the build by default, but only while
+  # `exclude` is unset, so it has to be listed here too.
+  - CNAME

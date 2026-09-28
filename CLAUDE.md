@@ -7,10 +7,22 @@ Portfolio for Mihai Corețchi, full-stack software engineer in Chișinău. GitHu
 
 ## Stack
 
-Plain HTML, CSS and a little JavaScript. No build step, no package manager, no framework, no
-dependencies beyond Google Fonts (Newsreader, IBM Plex Sans, IBM Plex Mono). `.nojekyll` turns off
-Jekyll so files are served as they are. Keep it that way unless the owner asks otherwise: a
-build step would mean a Pages workflow to maintain for a one-page site.
+Plain HTML, CSS and a little JavaScript. No package manager, no framework, no dependencies beyond
+Google Fonts (Newsreader, IBM Plex Sans, IBM Plex Mono). Keep it that way unless the owner asks
+otherwise.
+
+GitHub Pages builds the site with Jekyll, but **only to leave files out**. `_config.yml` does
+three things:
+
+- `theme: null` stops Pages applying its default Primer theme. Primer's
+  `assets/css/style.scss` would otherwise compile over our `assets/css/style.css`.
+- `exclude` lists repo-only files: `CLAUDE.md`, `README.md` and `CNAME`. **A new repo-only file
+  must be added there**, or it is published at eamtc.me/<file>. Names starting with `.` or `_`
+  are skipped automatically.
+- No page has front matter, so Jekyll copies every file through byte-for-byte. Don't add front
+  matter or Liquid tags (`{{ }}`, `{% %}`) unless you mean to use Jekyll.
+
+Don't bring back `.nojekyll`. It makes Pages serve every file in the repo, CLAUDE.md included.
 
 ```
 index.html            the whole page, one <section> per part
@@ -19,7 +31,8 @@ assets/css/style.css  tokens, components, responsive rules
 assets/js/main.js     theme toggle, mobile menu, scroll reveal, nav highlighting, footer year
 assets/img/           portrait: 224×336 and a 2× copy at 448×672 (keep the 2:3 ratio)
 favicon.svg           "MC" monogram
-CNAME                 eamtc.me
+CNAME                 eamtc.me (custom domain; not published)
+_config.yml           Jekyll: no theme, exclude list
 ```
 
 ## Run and check
@@ -27,6 +40,17 @@ CNAME                 eamtc.me
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
+
+To see exactly what Pages will publish, build with the `github-pages` gem (the same Jekyll
+version and plugins GitHub uses). Put a Gemfile outside the repo containing
+`gem "github-pages", group: :jekyll_plugins`, then:
+
+```bash
+LANG=C.UTF-8 BUNDLE_GEMFILE=/path/to/Gemfile bundle exec jekyll build --safe --source . --destination /tmp/_site
+```
+
+`/tmp/_site` should contain only the site files, each byte-identical to its source, and no
+`CLAUDE.md` or `README.md`.
 
 Before pushing, render the page in a real browser (Playwright/Chromium screenshots work well).
 Check it at 1280, 820, 390 and 320 px wide, in both light and dark mode:

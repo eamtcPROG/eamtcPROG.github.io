@@ -3,13 +3,15 @@
 Personal site of Mihai Corețchi, full-stack software engineer. Served by GitHub Pages at
 [eamtc.me](https://eamtc.me) (see `CNAME`).
 
-Plain HTML, CSS and a few lines of JavaScript. There is no build step: GitHub Pages serves the
-files as they are, and `.nojekyll` turns off Jekyll processing.
+Plain HTML, CSS and a few lines of JavaScript. GitHub Pages runs Jekyll over the repo, but
+`_config.yml` switches off the default theme and only uses Jekyll to leave repo files (this
+README, `CLAUDE.md`, `CNAME`) out of the published site. Every page is copied through unchanged.
 
 ```
 index.html            the page
 404.html              not-found page
 favicon.svg
+_config.yml           Jekyll config: no theme, files to leave unpublished
 assets/css/style.css  styles, with light and dark themes
 assets/js/main.js     theme toggle, footer year
 assets/img/           portrait
