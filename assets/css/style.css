@@ -1247,6 +1247,7 @@ p:last-child { margin-bottom: 0; }
   .aside-grid { grid-template-columns: 1fr; }
   .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
   .contact-card .btn-lg { font-size: 15px; padding: 0 20px; }
+  .contact-card .btn-text { text-align: center; }
   .stat { padding: 16px; }
   .stat dt { font-size: 13px; }
   .stat-value { font-size: 28px; }
