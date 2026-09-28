@@ -347,6 +347,67 @@ p:last-child { margin-bottom: 0; }
   80%, 100% { transform: scale(1.4); opacity: 0; }
 }
 
+/* Phone-only hero pieces. Desktop keeps the portrait, the two paragraphs and
+   labelled buttons; below 720px these take over (see the responsive section). */
+.avatar,
+.hero-location,
+.status-open,
+.lead-short,
+.stack-line { display: none; }
+
+.avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 4.5px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.hero-location {
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding-left: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-location svg { color: var(--accent); }
+
+.lead-short {
+  font-size: 20px;
+  line-height: 1.4;
+  max-width: 24em;
+  margin-bottom: 20px;
+  text-wrap: pretty;
+}
+
+/* Each item carries its separator in front of it. The list is pulled 22px
+   left and that strip is clipped away, which hides the dot in front of
+   whichever item starts a line. */
+.stack-line {
+  list-style: none;
+  margin: 0 0 0 -22px;
+  padding: 0;
+  clip-path: inset(0 0 0 22px);
+  flex-wrap: wrap;
+  row-gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.stack-line li {
+  position: relative;
+  padding-left: 22px;
+}
+.stack-line li::before {
+  content: "·";
+  position: absolute;
+  left: 8px;
+  color: var(--faint);
+}
+
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(48px, 7.5vw, 96px);
@@ -482,20 +543,19 @@ p:last-child { margin-bottom: 0; }
 
 /* Large outlined numeral. Decorative: marked aria-hidden in the HTML. */
 .section-num {
-  --num-stroke: var(--accent);
   margin: 0;
   font-family: var(--font-mono);
   font-size: clamp(52px, 9vw, 112px);
   font-weight: 400;
   line-height: 0.8;
   letter-spacing: -0.04em;
-  color: color-mix(in srgb, var(--num-stroke) 45%, transparent);
+  color: color-mix(in srgb, var(--accent) 45%, transparent);
   user-select: none;
 }
 @supports (-webkit-text-stroke: 1px black) {
   .section-num {
     color: transparent;
-    -webkit-text-stroke: 1.25px var(--num-stroke);
+    -webkit-text-stroke: 1.25px var(--accent);
   }
 }
 
@@ -1032,7 +1092,6 @@ p:last-child { margin-bottom: 0; }
   pointer-events: none;
 }
 .contact-card > * { position: relative; }
-.contact-card .section-num { --num-stroke: var(--panel-muted); margin-bottom: 18px; }
 .contact-card h2 {
   font-family: var(--font-display);
   font-size: clamp(38px, 6vw, 64px);
@@ -1145,20 +1204,40 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .hero-inner { grid-template-columns: 1fr; }
-  .portrait {
-    order: -1;
-    width: 210px;
-    margin: 0 0 8px;
+
+  /* Compact hero: avatar, location and availability next to one another,
+     a one-line summary, and icon-only social buttons. Keeps the name and
+     "Get in touch" on a phone's first screen. */
+  .portrait,
+  .lead,
+  .sub,
+  .status-role,
+  .btn-label,
+  .stat-extra { display: none; }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
   }
-  .portrait::before { transform: translate(10px, 10px) rotate(3deg); border-radius: 22px; }
-  .portrait-frame { border-radius: 20px; }
-  .portrait-tag {
-    left: calc(100% - 24px);
-    bottom: 20px;
-    white-space: nowrap;
-    font-size: 13px;
-    padding: 8px 12px;
+  .hero-meta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
+  .status { margin: 0; }
+  .avatar { display: block; }
+  .hero-location { display: inline-flex; }
+  .status-open { display: inline; }
+  .lead-short { display: block; }
+  .stack-line { display: flex; }
+  .btn-social { width: 46px; padding: 0; justify-content: center; }
+  .btn-social svg { width: 18px; height: 18px; }
+
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 1px solid var(--line); }
+  .stat:nth-child(n + 3) { border-top: 0; }
   .role,
   .timeline li { grid-template-columns: 1fr; gap: 6px; }
   .role-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
@@ -1167,12 +1246,20 @@ p:last-child { margin-bottom: 0; }
   .core-grid,
   .aside-grid { grid-template-columns: 1fr; }
   .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
-  .stat { padding: 18px; }
+  .contact-card .btn-lg { font-size: 15px; padding: 0 20px; }
+  .stat { padding: 16px; }
+  .stat dt { font-size: 13px; }
+  .stat-value { font-size: 28px; }
+  .stat-note { font-size: 13px; }
 }
 
 @media (max-width: 400px) {
-  .portrait { width: 160px; }
-  .stat { padding: 16px 14px; }
+  .avatar { width: 56px; height: 56px; }
+  .status { font-size: 13px; }
+  .stat { padding: 14px 12px; }
+  .stat dt { font-size: 12px; }
+  .stat-value { font-size: 26px; }
+  .stat-note { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
