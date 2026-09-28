@@ -127,6 +127,10 @@ The page describes a real person, and recruiters and clients read it. Accuracy b
     - the `.stat-extra` MSc tile is hidden
   - That keeps the name and "Get in touch" on a phone's first screen. Both versions live in the
     markup; the breakpoint's `display` rules pick one.
+- **Buttons are flex rows with an 8 px `gap`.** Every text run and child element inside a
+  `.btn` becomes its own flex item. So a `<wbr>`, `<br>` or inline tag dropped straight into a
+  button's text opens an 8 px hole. Wrap multi-part text in a single `<span>`, as the contact
+  email does with `.btn-text`.
 - **Scroll reveal** only hides elements when `<html>` has the `js` class, so the page still works
   without JavaScript. Keep that guard.
 - **Accessibility target is WCAG 2.2 AA:** landmarks, a skip link, visible focus, real alt
