@@ -800,27 +800,110 @@ p:last-child { margin-bottom: 0; }
 /* =========================================================
    Skills
    ========================================================= */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-.skill-group {
-  padding: 22px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-.skill-group h3 {
+.skills-label {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
 }
-.skill-group ul {
+
+.core-grid {
+  list-style: none;
+  margin: 0 0 clamp(44px, 6vw, 64px);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.core {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
+}
+.core:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: var(--shadow);
+}
+
+.core-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.core-name {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.core-kind {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.core > p:not(.used-in) {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.used-in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-strong);
+  font-size: 14px;
+}
+.used-in a {
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.used-in a:hover { text-decoration: underline; }
+
+.used-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.toolbox {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.toolbox > div {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.toolbox dt {
+  font-weight: 600;
+  font-size: 15px;
+}
+.toolbox dd { margin: 0; }
+
+.chips {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -828,12 +911,32 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   gap: 8px;
 }
-.skill-group li {
-  padding: 4px 11px;
+.chips li {
+  padding: 3px 11px;
   border: 1px solid var(--line);
   border-radius: 8px;
+  background: var(--surface);
   font-size: 14px;
-  background: var(--bg);
+}
+
+.work-style {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+  margin: 28px 0 0;
+  color: var(--muted);
+}
+
+/* A card reached from a "Used in" link gets a brief highlight. */
+.card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+  animation: target-flash 1.6s var(--ease);
+}
+@keyframes target-flash {
+  0%, 30% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent); }
+  100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 }
 
 /* =========================================================
@@ -971,7 +1074,7 @@ p:last-child { margin-bottom: 0; }
    Responsive
    ========================================================= */
 @media (max-width: 980px) {
-  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
@@ -1035,8 +1138,9 @@ p:last-child { margin-bottom: 0; }
   .role-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
   .section-head { grid-template-columns: 1fr; row-gap: 6px; }
   .section-intro { grid-column: 1; }
-  .skills,
+  .core-grid,
   .aside-grid { grid-template-columns: 1fr; }
+  .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
   .stat { padding: 18px; }
 }
 

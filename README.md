@@ -29,8 +29,12 @@ python3 -m http.server 8000
 - **Colours and fonts** are CSS variables at the top of `assets/css/style.css`. The dark theme
   redefines them twice: once for the system preference and once for the manual toggle.
 - **A new client project** is another `<article class="card reveal">` inside `.grid-2`.
+- **Skills** "Used in" links point at project card ids (`#p-mac`, `#p-dasi`, …). Update them
+  when you add, rename or remove a card.
 - **A new GitHub project** is another `<article class="card repo reveal">` inside `.repo-grid`.
   Keep an even number of half-width cards so the last row isn't left with one card; smaller
   repos go in the "Also on GitHub" list instead.
 - **The portrait** is `assets/img/mihai-coretchi.jpg` (224×336) with a 2× copy for sharp screens.
   To use a better photo, replace both files and keep the 2:3 ratio.
+
+Conventions for editing, especially the content-accuracy and privacy rules, are in `CLAUDE.md`.
