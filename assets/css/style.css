@@ -475,16 +475,42 @@ p:last-child { margin-bottom: 0; }
 .section-head {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 18px;
+  column-gap: clamp(14px, 2.2vw, 28px);
   align-items: baseline;
   margin-bottom: clamp(32px, 4.5vw, 52px);
 }
 
+/* Large outlined numeral. Decorative: marked aria-hidden in the HTML. */
 .section-num {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--accent);
+  --num-stroke: var(--accent);
   margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(52px, 9vw, 112px);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--num-stroke) 45%, transparent);
+  user-select: none;
+}
+@supports (-webkit-text-stroke: 1px black) {
+  .section-num {
+    color: transparent;
+    -webkit-text-stroke: 1.25px var(--num-stroke);
+  }
+}
+
+/* Rises into view behind a mask as its section is revealed. The negative
+   insets keep the mask from trimming glyphs that overflow the tight line box. */
+.js .reveal .section-num {
+  clip-path: inset(100% -10% -25% -10%);
+  transform: translateY(35%);
+  transition:
+    clip-path 0.9s var(--ease) 0.12s,
+    transform 0.9s var(--ease) 0.12s;
+}
+.js .reveal.is-visible .section-num {
+  clip-path: inset(-25% -10% -25% -10%);
+  transform: none;
 }
 
 .section h2 {
@@ -1006,7 +1032,7 @@ p:last-child { margin-bottom: 0; }
   pointer-events: none;
 }
 .contact-card > * { position: relative; }
-.contact-card .section-num { color: var(--panel-muted); margin-bottom: 14px; }
+.contact-card .section-num { --num-stroke: var(--panel-muted); margin-bottom: 18px; }
 .contact-card h2 {
   font-family: var(--font-display);
   font-size: clamp(38px, 6vw, 64px);
@@ -1136,8 +1162,8 @@ p:last-child { margin-bottom: 0; }
   .role,
   .timeline li { grid-template-columns: 1fr; gap: 6px; }
   .role-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
-  .section-head { grid-template-columns: 1fr; row-gap: 6px; }
-  .section-intro { grid-column: 1; }
+  .section-head { row-gap: 6px; }
+  .section-intro { grid-column: 1 / -1; }
   .core-grid,
   .aside-grid { grid-template-columns: 1fr; }
   .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
@@ -1158,6 +1184,7 @@ p:last-child { margin-bottom: 0; }
     transition: none !important;
   }
   .js .reveal { opacity: 1; transform: none; }
+  .js .reveal .section-num { clip-path: none; transform: none; }
   .card:hover,
   .btn:hover { transform: none; }
 }
