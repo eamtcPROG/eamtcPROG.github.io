@@ -105,6 +105,12 @@ The page describes a real person, and recruiters and clients read it. Accuracy b
 - **Components:** `.section-head` (number, title, intro), `.card`, `.card-featured`, and
   `.repo`, whose link covers the whole card via `::after`. Also `.tags`, `.chips`, the `.core`
   skill tiles, the `.toolbox` rows, `.stats`, and `.contact-card`.
+- **Section numbers** (`.section-num`) are large, outlined IBM Plex Mono numerals set on the
+  heading's baseline. They're decorative, so they carry `aria-hidden="true"`. Each one rises in
+  behind a `clip-path` mask when its `.reveal` parent becomes visible. With reduced motion or
+  no JavaScript, it shows without animating. Browsers without `-webkit-text-stroke` get a faint
+  solid fill instead of an outline. The contact panel's number reuses the style through
+  `--num-stroke`.
 - **Scroll reveal** only hides elements when `<html>` has the `js` class, so the page still works
   without JavaScript. Keep that guard.
 - **Accessibility target is WCAG 2.2 AA:** landmarks, a skip link, visible focus, real alt
