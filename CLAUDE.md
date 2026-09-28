@@ -111,8 +111,8 @@ The page describes a real person, and recruiters and clients read it. Accuracy b
   heading's baseline. They're decorative, so they carry `aria-hidden="true"`. Each one rises in
   behind a `clip-path` mask when its `.reveal` parent becomes visible. With reduced motion or
   no JavaScript, it shows without animating. Browsers without `-webkit-text-stroke` get a faint
-  solid fill instead of an outline. The contact panel's number reuses the style through
-  `--num-stroke`.
+  solid fill instead of an outline. Sections 01–05 have one. The contact panel ("Let's build
+  something.") deliberately has none, at the owner's request.
 - **Hero has two layouts, switched at 720 px.** The owner chose this split: keep desktop as it
   is, and use the compact version on phones only. Any change above 720 px must leave desktop
   pixel-identical unless the owner asks otherwise.

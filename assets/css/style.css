@@ -543,20 +543,19 @@ p:last-child { margin-bottom: 0; }
 
 /* Large outlined numeral. Decorative: marked aria-hidden in the HTML. */
 .section-num {
-  --num-stroke: var(--accent);
   margin: 0;
   font-family: var(--font-mono);
   font-size: clamp(52px, 9vw, 112px);
   font-weight: 400;
   line-height: 0.8;
   letter-spacing: -0.04em;
-  color: color-mix(in srgb, var(--num-stroke) 45%, transparent);
+  color: color-mix(in srgb, var(--accent) 45%, transparent);
   user-select: none;
 }
 @supports (-webkit-text-stroke: 1px black) {
   .section-num {
     color: transparent;
-    -webkit-text-stroke: 1.25px var(--num-stroke);
+    -webkit-text-stroke: 1.25px var(--accent);
   }
 }
 
@@ -1093,7 +1092,6 @@ p:last-child { margin-bottom: 0; }
   pointer-events: none;
 }
 .contact-card > * { position: relative; }
-.contact-card .section-num { --num-stroke: var(--panel-muted); margin-bottom: 18px; }
 .contact-card h2 {
   font-family: var(--font-display);
   font-size: clamp(38px, 6vw, 64px);
@@ -1248,6 +1246,7 @@ p:last-child { margin-bottom: 0; }
   .core-grid,
   .aside-grid { grid-template-columns: 1fr; }
   .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
+  .contact-card .btn-lg { font-size: 15px; padding: 0 20px; }
   .stat { padding: 16px; }
   .stat dt { font-size: 13px; }
   .stat-value { font-size: 28px; }
