@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mihai Corețchi · Full-stack Software Engineer</title>
+  <meta name="description" content="Mihai Corețchi is a full-stack software engineer in Chișinău, Moldova, building web platforms, mobile apps and SaaS products with React, Next.js, NestJS and PostgreSQL.">
+  <meta name="author" content="Mihai Corețchi">
+  <link rel="canonical" href="https://eamtc.me/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Mihai Corețchi · Full-stack Software Engineer">
+  <meta property="og:description" content="Web platforms, mobile apps and SaaS products, built end to end with React, Next.js, NestJS and PostgreSQL.">
+  <meta property="og:url" content="https://eamtc.me/">
+  <meta property="og:image" content="https://eamtc.me/assets/img/mihai-coretchi@2x.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101116" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    // Apply a saved theme before first paint so there is no flash,
+    // and flag that JS is running so scroll-reveal can hide content.
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mihai Corețchi",
+    "jobTitle": "Full-stack Software Engineer",
+    "url": "https://eamtc.me/",
+    "image": "https://eamtc.me/assets/img/mihai-coretchi@2x.jpg",
+    "sameAs": [
+      "https://github.com/eamtcPROG",
+      "https://www.linkedin.com/in/mihai-core%C8%9Bchi-4a004a266"
+    ],
+    "worksFor": { "@type": "Organization", "name": "Servicii Complete SRL", "url": "https://serviciicomplete.md/" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Technical University of Moldova" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Chișinău", "addressCountry": "MD" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Mihai Corețchi, back to top">
+        <span class="brand-mark" aria-hidden="true">MC</span>
+        <span class="brand-name">Mihai Corețchi</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle icon-btn" type="button" aria-label="Switch colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="menu-toggle icon-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Intro -->
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>Full-stack engineer at Servicii Complete</p>
+          <h1>Mihai <em>Corețchi</em></h1>
+          <p class="lead">
+            I build web platforms, mobile apps and SaaS products across the whole stack: React and
+            Next.js on the front, NestJS with PostgreSQL or MongoDB behind it, shipped to the cloud.
+          </p>
+          <p class="sub">
+            I care about software that is easy to use and does what the people relying on it actually
+            need. Lately that means microservices, Kubernetes, and AI-assisted development with Claude
+            Code and MCP-based automation.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:mihai.coretchi17@gmail.com">
+              Get in touch
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn" href="https://github.com/eamtcPROG" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/mihai-core%C8%9Bchi-4a004a266" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <img
+              src="assets/img/mihai-coretchi@2x.jpg"
+              srcset="assets/img/mihai-coretchi.jpg 224w, assets/img/mihai-coretchi@2x.jpg 448w"
+              sizes="(max-width: 720px) 210px, 300px"
+              width="448" height="672"
+              alt="Mihai Corețchi in a white shirt against a grey studio backdrop">
+          </div>
+          <figcaption class="portrait-tag">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9.5" r="2.4" fill="currentColor"/></svg>
+            Chișinău, Moldova
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <dl class="stats">
+          <div class="stat">
+            <dt>Client products built</dt>
+            <dd><span class="stat-value">9</span><span class="stat-note">web, mobile and SaaS</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Public GitHub repositories</dt>
+            <dd><span class="stat-value">40+</span><span class="stat-note">going back to 2020</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Building for clients since</dt>
+            <dd><span class="stat-value">2022</span><span class="stat-note">at Servicii Complete</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Studying now</dt>
+            <dd><span class="stat-value">MSc</span><span class="stat-note">Software Engineering, UTM</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">01</p>
+          <h2 id="work-title">Experience</h2>
+        </header>
+        <article class="role reveal">
+          <div class="role-meta">
+            <p class="when">Dec 2022 — present</p>
+            <p class="where"><a href="https://serviciicomplete.md/" rel="noopener">serviciicomplete.md ↗</a></p>
+          </div>
+          <div class="role-body">
+            <h3>Full-stack Software Engineer <span class="at">at Servicii Complete SRL</span></h3>
+            <p>
+              Product and client work across web, mobile and SaaS: online learning platforms,
+              e-commerce storefronts, an internal management system, cross-platform mobile apps, and
+              most recently a SaaS product I designed and built from the ground up.
+            </p>
+            <ul class="role-list">
+              <li>Designed and built <strong>Iftamaster</strong>, a SaaS that automates IFTA fuel-tax reporting for trucking fleets.</li>
+              <li>Worked on frontend and backend for the <strong>Liveclass</strong> and <strong>Grigo</strong> online learning platforms.</li>
+              <li>Built the frontend of a management system for <strong>TIREX</strong>.</li>
+              <li>Frontend for the <strong>keks.md</strong>, <strong>bonappetit.md</strong> and <strong>Spartacus</strong> e-commerce sites.</li>
+              <li>Shipped cross-platform React Native apps for <strong>Alfa Diagnostic</strong> and <strong>Gotter</strong>.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Client projects -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">02</p>
+          <h2 id="projects-title">Client projects</h2>
+          <p class="section-intro">Products I built or helped build at Servicii Complete.</p>
+        </header>
+
+        <article class="card card-featured reveal">
+          <div class="featured-copy">
+            <p class="kicker">SaaS · Designed &amp; built end to end</p>
+            <h3>Iftamaster</h3>
+            <p>
+              Trucking fleets file IFTA fuel-tax reports every quarter, usually by keying in fuel
+              receipts and mileage records by hand. Iftamaster takes the uploaded documents and does
+              that work: an asynchronous, queue-based pipeline sends each file through Google Document
+              AI to extract the data, then Vertex AI Gemini to interpret it.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>NestJS</li><li>Next.js</li><li>PostgreSQL</li><li>Document AI</li><li>Vertex AI Gemini</li><li>Cloud Run</li>
+            </ul>
+          </div>
+          <ol class="pipeline" aria-label="Document processing pipeline">
+            <li><span class="step">Upload</span><span class="step-note">fuel &amp; mileage docs</span></li>
+            <li><span class="step">Queue</span><span class="step-note">async workers</span></li>
+            <li><span class="step">Extract</span><span class="step-note">Document AI</span></li>
+            <li><span class="step">Interpret</span><span class="step-note">Vertex AI Gemini</span></li>
+            <li><span class="step">Report</span><span class="step-note">IFTA filing data</span></li>
+          </ol>
+        </article>
+
+        <div class="grid-2">
+          <article class="card reveal">
+            <p class="kicker">EdTech · Full-stack</p>
+            <h3>Liveclass &amp; Grigo</h3>
+            <p>Two online learning platforms where I worked on both the frontend and the backend.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li><li>Next.js</li><li>NestJS</li><li>PostgreSQL</li><li>MongoDB</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <p class="kicker">Mobile · iOS &amp; Android</p>
+            <h3>Alfa Diagnostic &amp; Gotter</h3>
+            <p>Cross-platform mobile apps built from a single React Native codebase, running smoothly on both iOS and Android.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>React Native</li><li>iOS</li><li>Android</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <p class="kicker">E-commerce · Frontend</p>
+            <h3>Online storefronts</h3>
+            <p>
+              Responsive frontends for
+              <a href="https://keks.md" rel="noopener">keks.md</a>,
+              <a href="https://bonappetit.md" rel="noopener">bonappetit.md</a>
+              and Spartacus, focused on a smooth shopping experience on every screen size.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Frontend</li><li>Responsive UI</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <p class="kicker">Internal tools · Frontend</p>
+            <h3>TIREX management system</h3>
+            <p>The frontend of a management system for TIREX, built to be efficient and easy to use for day-to-day work.</p>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub -->
+    <section class="section" id="github" aria-labelledby="github-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">03</p>
+          <h2 id="github-title">On GitHub</h2>
+          <p class="section-intro">
+            Open code from my own projects and my Master's work: distributed systems, cloud deployments
+            and some machine learning. Everything here links to the repository.
+          </p>
+        </header>
+
+        <div class="repo-grid">
+          <article class="card repo repo-wide reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>easyesg</p>
+              <p class="repo-meta"><span class="pill pill-live">In design</span> 2026 · solo</p>
+            </div>
+            <h3>easyesg: sustainability reporting for Moldovan SMEs</h3>
+            <p>
+              A multi-tenant SaaS designed to walk small companies through a VSME sustainability report
+              in Romanian, English and Russian, calculate Scope 1 and 2 emissions, export to PDF and the
+              official EFRAG Excel template, and invoice in line with Moldova's e-Factura mandate. It is
+              currently a complete specification, about 9,000 lines covering 170+ use cases, functional and
+              non-functional requirements, architecture decisions and screen design, ahead of the build.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Specification</li><li>NestJS</li><li>Next.js</li><li>PostgreSQL + RLS</li><li>BullMQ</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/easyesg" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>DASI</p>
+              <p class="repo-meta">2026 · team of 3</p>
+            </div>
+            <h3>Realtime chat &amp; analytics on microservices</h3>
+            <p>
+              A Next.js 16 client and a NestJS 11 gateway with Socket.IO in front of identity, chat,
+              analytics and notification services that talk over RabbitMQ. CI builds and tests only the
+              services that changed. I started the repo and worked on the client, gateway, identity and
+              analytics services, plus tests and the architecture docs.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>NestJS</li><li>Next.js</li><li>RabbitMQ</li><li>Socket.IO</li><li>PostgreSQL</li><li>MongoDB</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/DASI" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>CloudApplication</p>
+              <p class="repo-meta">2026 · solo</p>
+            </div>
+            <h3>A NestJS API on Google Kubernetes Engine</h3>
+            <p>
+              GitHub Actions builds the image, pushes it to Docker Hub and rolls it out to GKE with
+              zero-downtime updates gated by health probes. CPU autoscaling runs between 2 and 5
+              pods, and PostgreSQL lives in a StatefulSet on a persistent disk.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Kubernetes</li><li>GKE</li><li>Docker</li><li>GitHub Actions</li><li>NestJS</li><li>PostgreSQL</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/CloudApplication" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>MAC</p>
+              <p class="repo-meta">2025 · solo</p>
+            </div>
+            <h3>AWS EC2 management dashboard</h3>
+            <p>
+              Create, list, sync and terminate EC2 instances across AWS regions from one screen. A NestJS
+              API with TypeORM, PostgreSQL and Swagger docs, with React 19 and Vite on the front.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>AWS SDK</li><li>NestJS</li><li>React</li><li>Vite</li><li>PostgreSQL</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/MAC" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>ASS</p>
+              <p class="repo-meta">2025 · solo</p>
+            </div>
+            <h3>One marketplace, two architectures</h3>
+            <p>
+              The same marketplace (users, products, orders and cached search) built twice in NestJS:
+              as a modular monolith, and as four Dockerised microservices communicating over RabbitMQ,
+              to compare the trade-offs.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>NestJS</li><li>Microservices</li><li>RabbitMQ</li><li>TypeORM</li><li>Docker</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/ASS" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>PAD</p>
+              <p class="repo-meta">2024 · solo</p>
+            </div>
+            <h3>E-Ticket: a distributed ticket marketplace</h3>
+            <p>
+              Node.js services for users (PostgreSQL, with Socket.IO notifications) and ticket orders
+              (MongoDB), behind an API gateway and a service-discovery service written in C# with
+              ASP.NET Core.
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Node.js</li><li>ASP.NET Core</li><li>C#</li><li>PostgreSQL</li><li>MongoDB</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/PAD" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card repo reveal">
+            <div class="repo-top">
+              <p class="repo-name"><span aria-hidden="true">eamtcPROG/</span>AIA</p>
+              <p class="repo-meta">2026 · team</p>
+            </div>
+            <h3>Predicting La Liga match results</h3>
+            <p>
+              I wrote the exporter that pulls several seasons of data from the football-data.org API into
+              CSV files, plus the multinomial logistic regression and baseline models (Naive Bayes, SVM,
+              random forest).
+            </p>
+            <ul class="tags" aria-label="Technologies">
+              <li>Python</li><li>pandas</li><li>scikit-learn</li><li>Jupyter</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/eamtcPROG/AIA" rel="noopener">View repository <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+
+        <div class="more reveal">
+          <h3 class="more-title">Also on GitHub</h3>
+          <ul class="more-list">
+            <li>
+              <a href="https://github.com/eamtcPROG/pw-lab5" rel="noopener">go2web</a>
+              <span>A command-line HTTP client over raw sockets, with redirects, caching and web search.</span>
+              <span class="lang">Python</span>
+            </li>
+            <li>
+              <a href="https://github.com/AlexGrama22/ELSDteam3" rel="noopener">ELSDteam3</a>
+              <span>A team-built language for geometry: ANTLR grammar, parser and a Python interpreter.</span>
+              <span class="lang">Python</span>
+            </li>
+            <li>
+              <a href="https://github.com/eamtcPROG/FLFA" rel="noopener">FLFA</a>
+              <span>Lexer, parser, finite automata and Chomsky normal form conversion.</span>
+              <span class="lang">Java</span>
+            </li>
+            <li>
+              <a href="https://github.com/eamtcPROG/TMPS" rel="noopener">TMPS</a>
+              <span>SOLID, and creational, structural and behavioural design patterns.</span>
+              <span class="lang">Java</span>
+            </li>
+            <li>
+              <a href="https://github.com/eamtcPROG/TS" rel="noopener">TS</a>
+              <span>Test-driven and behaviour-driven development with Jest, Cucumber and Supertest.</span>
+              <span class="lang">JavaScript</span>
+            </li>
+            <li>
+              <a href="https://eamtcprog.github.io/restaurant-site-demo/" rel="noopener">restaurant-site-demo</a>
+              <span>A restaurant landing page, live on GitHub Pages.</span>
+              <span class="lang">HTML/CSS</span>
+            </li>
+            <li>
+              <a href="https://github.com/eamtcPROG/magazin-sportiv-react" rel="noopener">magazin-sportiv</a>
+              <span>An early full-stack shop from 2021: React and Redux, with an Express, MongoDB and JWT API.</span>
+              <span class="lang">JavaScript</span>
+            </li>
+          </ul>
+          <a class="btn btn-quiet" href="https://github.com/eamtcPROG?tab=repositories" rel="noopener">All repositories on GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">04</p>
+          <h2 id="skills-title">Skills</h2>
+        </header>
+        <div class="skills reveal">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>Python</li><li>HTML &amp; CSS</li><li>C#</li><li>Java</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Frontend &amp; mobile</h3>
+            <ul><li>React</li><li>Next.js</li><li>React Native</li><li>Expo</li><li>Vite</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Backend &amp; messaging</h3>
+            <ul><li>Node.js</li><li>NestJS</li><li>Express</li><li>RabbitMQ</li><li>Socket.IO</li><li>REST &amp; Swagger</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Databases</h3>
+            <ul><li>PostgreSQL</li><li>MSSQL</li><li>MongoDB</li><li>Redis</li><li>TypeORM</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Cloud &amp; DevOps</h3>
+            <ul><li>Google Cloud</li><li>Cloud Run</li><li>Kubernetes (GKE)</li><li>AWS EC2</li><li>Docker</li><li>GitHub Actions</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>AI</h3>
+            <ul><li>Document AI</li><li>Vertex AI Gemini</li><li>Claude Code</li><li>MCP tool automation</li><li>scikit-learn</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Practices</h3>
+            <ul><li>OOP &amp; SOLID</li><li>Design patterns</li><li>Microservices</li><li>TDD &amp; BDD</li><li>Git</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Working style</h3>
+            <ul><li>Teamwork</li><li>Flexibility</li><li>Responsibility</li><li>Helping others</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="section-num">05</p>
+          <h2 id="education-title">Education</h2>
+        </header>
+        <ol class="timeline reveal">
+          <li>
+            <p class="when">2025 — present</p>
+            <div>
+              <h3>Technical University of Moldova</h3>
+              <p>MSc, Software Engineering (English-taught) · Systems and Computer Engineering</p>
+            </div>
+          </li>
+          <li>
+            <p class="when">2021 — 2025</p>
+            <div>
+              <h3>Technical University of Moldova</h3>
+              <p>BSc, Software Engineering (English-taught) · Systems and Computer Engineering</p>
+            </div>
+          </li>
+          <li>
+            <p class="when">2018 — 2021</p>
+            <div>
+              <h3>Step IT Academy</h3>
+              <p>Programming course</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="aside-grid reveal">
+          <div class="aside">
+            <h3 class="aside-title">Languages</h3>
+            <p>Romanian (native) · English (B2)</p>
+          </div>
+          <div class="aside">
+            <h3 class="aside-title">Outside work</h3>
+            <p>Football, working out, rock music and travelling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <p class="section-num">06</p>
+          <h2 id="contact-title">Let's build something.</h2>
+          <p class="contact-lead">
+            Have a product to build or a team that needs another full-stack engineer? I'd like to hear about it.
+          </p>
+          <a class="btn btn-primary btn-lg" href="mailto:mihai.coretchi17@gmail.com">mihai.coretchi17@gmail.com</a>
+          <ul class="contact-links">
+            <li><a href="https://github.com/eamtcPROG" rel="noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/mihai-core%C8%9Bchi-4a004a266" rel="noopener">LinkedIn ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Mihai Corețchi · Chișinău</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
