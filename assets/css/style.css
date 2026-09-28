@@ -273,6 +273,7 @@ p:last-child { margin-bottom: 0; }
 .btn-primary:hover svg { transform: translateX(3px); }
 
 .btn-quiet { background: transparent; }
+.btn-icon { width: 46px; padding: 0; justify-content: center; }
 .btn-lg { min-height: 56px; padding: 0 28px; font-size: 17px; }
 
 /* =========================================================
@@ -323,7 +324,7 @@ p:last-child { margin-bottom: 0; }
   background: color-mix(in srgb, var(--surface) 80%, transparent);
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 26px;
+  margin: 0;
 }
 
 .status-dot {
@@ -347,6 +348,42 @@ p:last-child { margin-bottom: 0; }
   80%, 100% { transform: scale(1.4); opacity: 0; }
 }
 
+/* Status pill, plus an avatar and location that only show on phones,
+   where the large portrait is hidden. */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.hero-meta-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.avatar {
+  display: none;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 4.5px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.hero-location {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding-left: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-location svg { color: var(--accent); }
+
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(48px, 7.5vw, 96px);
@@ -361,15 +398,37 @@ p:last-child { margin-bottom: 0; }
 }
 
 .lead {
-  font-size: clamp(19px, 2.2vw, 23px);
-  line-height: 1.5;
-  max-width: 32em;
-  margin-bottom: 18px;
+  font-size: clamp(20px, 2.5vw, 27px);
+  line-height: 1.4;
+  max-width: 24em;
+  margin-bottom: 20px;
+  text-wrap: pretty;
 }
 
-.sub {
+/* Each item carries its separator in front of it. The list is pulled 22px
+   left and that strip is clipped away, which hides the dot in front of
+   whichever item starts a line. */
+.stack-line {
+  list-style: none;
+  margin: 0 0 0 -22px;
+  padding: 0;
+  clip-path: inset(0 0 0 22px);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
   color: var(--muted);
-  max-width: 36em;
+}
+.stack-line li {
+  position: relative;
+  padding-left: 22px;
+}
+.stack-line li::before {
+  content: "·";
+  position: absolute;
+  left: 8px;
+  color: var(--faint);
 }
 
 .actions {
@@ -431,7 +490,7 @@ p:last-child { margin-bottom: 0; }
 /* Stat tiles */
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: clamp(48px, 7vw, 80px) 0 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1101,9 +1160,6 @@ p:last-child { margin-bottom: 0; }
    ========================================================= */
 @media (max-width: 980px) {
   .core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .stat:nth-child(3) { border-left: 0; }
-  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 900px) {
@@ -1145,20 +1201,9 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .hero-inner { grid-template-columns: 1fr; }
-  .portrait {
-    order: -1;
-    width: 210px;
-    margin: 0 0 8px;
-  }
-  .portrait::before { transform: translate(10px, 10px) rotate(3deg); border-radius: 22px; }
-  .portrait-frame { border-radius: 20px; }
-  .portrait-tag {
-    left: calc(100% - 24px);
-    bottom: 20px;
-    white-space: nowrap;
-    font-size: 13px;
-    padding: 8px 12px;
-  }
+  .portrait { display: none; }
+  .avatar { display: block; }
+  .hero-location { display: inline-flex; }
   .role,
   .timeline li { grid-template-columns: 1fr; gap: 6px; }
   .role-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
@@ -1167,12 +1212,19 @@ p:last-child { margin-bottom: 0; }
   .core-grid,
   .aside-grid { grid-template-columns: 1fr; }
   .toolbox > div { grid-template-columns: 1fr; gap: 10px; }
-  .stat { padding: 18px; }
+  .stat { padding: 16px; }
+  .stat dt { font-size: 13px; }
+  .stat-value { font-size: 28px; }
+  .stat-note { font-size: 13px; }
 }
 
 @media (max-width: 400px) {
-  .portrait { width: 160px; }
-  .stat { padding: 16px 14px; }
+  .avatar { width: 56px; height: 56px; }
+  .status { font-size: 13px; }
+  .stat { padding: 14px 12px; }
+  .stat dt { font-size: 12px; }
+  .stat-value { font-size: 26px; }
+  .stat-note { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
